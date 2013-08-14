@@ -1,0 +1,185 @@
+// Import all the variables into the main css file.
+@import "variables";
+
+// I gather this file is a starting point for the project.
+@import "bootstrap";
+
+@import "bootstrap-responsive";
+
+// compass sass transitions
+@import "compass/css3/transition";
+
+//  General
+
+.container {
+  margin-top: 50px;
+  background-color: rgba(200, 200, 200, 0.1);
+}
+
+.logo {
+  width: 230px;
+  height: 40px;
+  background: url(/images/csf_logo.svg) no-repeat;
+}
+
+.slider {
+  margin-top: 50px;
+  background-color: rgba(120, 120, 120, 0.1);
+  img {
+    width: 100%;
+  }
+}
+
+// Typorgaphy
+h1 {
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+aside {
+  h3 {
+    margin: 0px;
+    padding: 0 0 6px 0;
+    line-height: 24px;
+  }
+}
+
+.serif {
+  font-family: $serifFontFamily;
+  font-size: 1.286em;
+  line-height: 1.6em;
+  margin-bottom: 24px;
+}
+
+.large-serif {
+  font-family: $serifFontFamily;
+  font-size: 1.286em;
+  line-height: 1.6em;
+}
+
+// List styles
+
+ul {
+  margin-left: 0px;
+  li {
+    list-style-type: none;
+  }
+}
+
+ol {
+  counter-reset: li;
+  margin-left: 0;
+  padding-left: 0;
+  & > li {
+    margin: 0 0 12px 20px;
+    padding: 4px 20px;
+    &:before {
+      margin-right: 8px;
+      padding: 4px;
+      h3 {
+        line-height: 12px;
+        margin: 0px;
+        padding: 0px;
+      }
+    }
+  }
+}
+
+
+
+// Links
+
+a {
+  margin-bottom: 3px;
+  text-decoration: none;
+  @include single-transition(0.2s, ease-in-out);
+  &.page-link {
+    width: auto;
+    clear: left;
+    float: left;
+     
+    &:after {
+      content: ' \25B7';
+    }
+  }
+  &:hover {
+    color: $pink;
+    text-decoration: none;
+    border-bottom: dotted 1px;
+     @include single-transition(0.2s, ease-in-out);
+  }
+}
+
+// Buttons & Triggers
+
+.info-open {
+  width: 36px;
+  height: 36px;
+  background: url(/images/open.svg) no-repeat;
+  &.active {
+    background: url(/images/close.svg) no-repeat;
+  }
+}
+
+.down {
+  width: 36px;
+  height: 36px;
+  background: url(/images/down.svg) no-repeat;
+  &.active {
+    -webkit-transform: rotate(180deg);
+    /* Chrome and other webkit browsers */
+    -moz-transform: rotate(180deg);
+    /* FF */
+    -o-transform: rotate(180deg);
+    /* Opera */
+    -ms-transform: rotate(180deg);
+    /* IE9 */
+    transform: rotate(180deg);
+  }
+}
+
+.projects {
+
+li { margin-bottom: 66px;
+display: inline-block;
+min-height: 1px;
+width: auto;
+
+  img { width: 100%; }
+
+  &:hover {
+    .post-thumbnail img {
+      opacity: 0.1;
+      @include single-transition(0.2s, ease-in-out);
+    }
+    .excerpt {
+      opacity: 1;
+      @include single-transition(0.2s, ease-in-out);
+    }
+  }
+  .post-thumbnail img {
+    @include single-transition(0.2s, ease-in-out);
+  }
+  .excerpt {
+    opacity: 0;
+    position:absolute;
+
+
+    @include single-transition(0.2s, ease-in-out);
+    h3 {
+      margin-top: 0px;
+      margin-bottom: 24px;
+      line-height: 12px;
+    }
+  }
+
+  }
+    
+}
