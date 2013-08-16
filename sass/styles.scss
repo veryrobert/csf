@@ -1,3 +1,19 @@
+// - - - - - - - - - - - - -  Varibles Styles - - - - - - - - - - - - - - - //
+
+$tablet: 768px;
+$mobile: 400px;
+
+// Media queries 
+
+  //   @media screen and (max-width: $tablet) {
+  //   background-color: aqua;
+  // } 
+
+  // @media screen and (max-width: $mobile) {
+  //   background-color: green;
+  // }
+
+
 // Import all the variables into the main css file.
 @import "variables";
 
@@ -6,41 +22,152 @@
 
 @import "bootstrap-responsive";
 
+// - - - - - - - - - - - - -  Compass includes - - - - - - - - - - - - - - - //
+
 // compass sass transitions
 @import "compass/css3/transition";
 
-//  General
+// - - - - - - - - - - - - -  Mixins includes - - - - - - - - - - - - - - - //
 
-.container {
-  margin-top: 50px;
-  background-color: rgba(200, 200, 200, 0.1);
+// Changes to ems if needed but sticky with pixels as bootstrap is in pixels
+@mixin large-serif {
+  font-family: $serifFontFamily;
+  font-size: $fontSizeLarge;
+  line-height: 27px;
+  font-weight: normal;
+  display: inline;
 }
 
-.logo {
-  width: 230px;
-  height: 40px;
-  background: url(/images/csf_logo.svg) no-repeat;
+// Trigger button
+@mixin trigger-button-size {
+  background-position: 100% 54%;
+  background-size: 36px 36px;
 }
 
-.slider {
-  margin-top: 50px;
-  background-color: rgba(120, 120, 120, 0.1);
-  img {
-    width: 100%;
+// 36px icons buttons
+@mixin icon-button {
+  cursor: pointer;
+  background-position: 50% 50%;
+  background-size: 36px;
+  height: 36px;
+  width: 36px;
+  @include single-transition(0.2s, ease-in-out);
+}
+
+// - - - - - - - - - - - - -  Global Styles - - - - - - - - - - - - - - - - //
+
+body {
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+
+
+
+}
+
+header {
+  .logo {
+    width: 230px;
+    height: 40px;
+    background: url(/images/csf_logo.svg) no-repeat;
+  }
+  nav {
+    font-weight: lighter;
+    li {
+      margin-right: 5%;
+      margin-top: 6px;
+
+ @media screen and (max-width: $mobile) {
+display: inline;
+margin-left: 0px;
+clear: left;
+  } 
+
+
+    }
   }
 }
 
+aside.in-page-nav {
+  position: fixed;
+  font-weight: lighter;
+  color: $pink;
+  right: 0;
+  top: 35.4%;
+  ul li {
+    margin-left: -4px;
+    padding-left: 0px;
+    margin-top: 6px;
+  }
+}
+
+// Main container
+
+.container {
+  margin-top: 50px;
+
+   @media screen and (max-width: $tablet) {
+     margin-top: 20px;
+  } 
+
+}
+
+// In page sections
+
+section {
+  margin-top: 120px;
+
+    @media screen and (max-width: $tablet) {
+     margin-top: 0px;
+
+
+  } 
+
+
+}
+
+// Header styles
+
+a, p, li {
+  font-size: 13px;
+  line-height: $baseLineHeight;
+}
+
+// Bottom Footer
+
+footer {
+  margin-top: 200px;
+  margin-bottom: 10px;
+  ul li {
+    margin-right: 50px;
+    margin-left: 0px;
+    padding-left: 0px !important;
+  }
+  .ual-logo {
+    height: 32px;
+    img {
+      position: relative;
+      bottom: 10px;
+    }
+  }
+}
+
+.social-links ul li {
+  margin-right: 10px;
+}
+
+// - - - - - - - - - - - - - - Type - - - - - - - - - - - - - - //
+
 // Typorgaphy
 h1 {
-  font-size: 22px;
+  font-size: $fontSizeLarge;
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 h3 {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 aside {
@@ -51,23 +178,72 @@ aside {
   }
 }
 
+p {
+  font-size: 13px;
+}
+
+.small-pink {
+  font-size: $fontSizeSmall;
+  color: $pink;
+  font-weight: lighter;
+}
+
+// Elements with serifs
+
 .serif {
   font-family: $serifFontFamily;
-  font-size: 1.286em;
-  line-height: 1.6em;
+  font-size: $fontSizeLarge;
+  line-height: 27px;
   margin-bottom: 24px;
 }
 
 .large-serif {
+  @include large-serif;
+  @extend p.large-serif;
+
+}
+
+.serif-title {
   font-family: $serifFontFamily;
-  font-size: 1.286em;
-  line-height: 1.6em;
+  font-size: 160%;
+  font-style: italic;
+  font-weight: normal;
+  border-bottom: 1px solid;
+  margin-bottom: 6%;
+}
+
+.large-serif-italic {
+  font-family: $serifFontFamily;
+  font-size: 140%;
+  font-style: italic;
+  font-weight: normal;
+  margin-bottom: 3%;
+}
+
+// Header paragraph with em dash
+.inline-heading {
+  display: inline;
+  font-style: italic;
+  @include large-serif;
+  color: $pink;
+  &:after {
+    content: ' ' '\2014' ' ';
+  }
 }
 
 // List styles
 
 ul {
   margin-left: 0px;
+  &.tags li {
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 3%;
+    font-weight: lighter;
+    a {
+      color: $pink;
+    }
+  }
   li {
     list-style-type: none;
   }
@@ -92,11 +268,18 @@ ol {
   }
 }
 
-
+ul.inline, ol.inline {
+  margin-left: 0;
+  list-style: none;
+  position: relative;
+  // bottom: -25px;
+}
 
 // Links
 
 a {
+  cursor: pointer;
+  font-size: $bodyfontSize;
   margin-bottom: 3px;
   text-decoration: none;
   @include single-transition(0.2s, ease-in-out);
@@ -104,7 +287,12 @@ a {
     width: auto;
     clear: left;
     float: left;
-     
+    color: $pink;
+    font-weight: lighter;
+    font-size: $bodyfontSize;
+    font-family: $sansFontFamily;
+    margin-top: 6%;
+    border-bottom: dotted 1px #fff;
     &:after {
       content: ' \25B7';
     }
@@ -113,7 +301,178 @@ a {
     color: $pink;
     text-decoration: none;
     border-bottom: dotted 1px;
-     @include single-transition(0.2s, ease-in-out);
+    @include single-transition(0.2s, ease-in-out);
+  }
+  &.on {
+    color: $pink;
+    cursor: pointer;
+    text-decoration: none;
+    // @include single-transition(0.1s, ease-in-out);
+    height: 22px;
+    width: 120px;
+    display: block;
+    background: url(/images/open_pink.png) no-repeat;
+    @include trigger-button-size;
+    font-weight: lighter;
+    &:hover {
+      border-bottom: 0px;
+      color: #000;
+      background: url(/images/open.png) no-repeat;
+      @include trigger-button-size;
+    }
+    &.clicked {
+      background: url(/images/open_pink_x.png) no-repeat;
+      @include trigger-button-size;
+      &:hover {
+        background: url(/images/open_x.png) no-repeat;
+        @include trigger-button-size;
+      }
+    }
+  }
+}
+
+// Page elements
+
+.article-preview {
+  margin-top: 3%;
+}
+
+.network-list {
+  margin-bottom: 5%;
+  display: none;
+}
+
+.pure-text {
+  li {
+    margin-bottom: 8%;
+  }
+}
+
+.publications-archive {
+  li.archive-item {
+    position: relative;
+    min-height: 200px;
+    margin: 60px 0 80px 0px;
+  }
+}
+
+.publications-type {
+  width: 120px;
+  height: 164px;
+  border: solid 1px white;
+  margin-bottom: 6%;
+  &:hover {
+    border: dotted 1px $pink;
+  }
+  img {
+    width: auto;
+    @include single-transition(0.2s, ease-in-out);
+  }
+  &:hover {
+    img {
+      opacity: 0;
+      @include single-transition(0.2s, ease-in-out);
+    }
+  }
+}
+
+.file-link {
+  position: relative;
+  bottom: -14px;
+}
+
+// - - - - - - - - - - - - - - Page specific - - - - - - - - - - - - - - //
+
+// Home page
+
+.slider {
+  margin-top: 50px;
+  // background-color: rgba(120, 120, 120, 0.1);
+  img {
+    width: 100%;
+  }
+}
+
+.page-content {
+  li {
+    margin-bottom: 66px;
+    display: inline-block;
+    min-height: 1px;
+
+ @media screen and (max-width: $mobile) {
+margin-bottom: 24px;
+
+img {width: 100%;}
+
+  } 
+
+  }
+}
+
+.projects {
+  li {
+    margin-bottom: 66px;
+    display: inline-block;
+    min-height: 1px;
+
+ @media screen and (max-width: $mobile) {
+margin-bottom: 24px;
+
+img {width: 100%;}
+  } 
+
+    img {
+      width: 100%;
+    }
+    &:hover {
+      .post-thumbnail img {
+        opacity: 0.1;
+        @include single-transition(0.2s, ease-in-out);
+      }
+      .excerpt {
+        opacity: 1;
+        @include single-transition(0.2s, ease-in-out);
+      }
+    }
+    .post-thumbnail img {
+      @include single-transition(0.2s, ease-in-out);
+    }
+    .excerpt {
+      opacity: 0;
+      position: absolute;
+      @include single-transition(0.2s, ease-in-out);
+      h3 {
+        margin-top: 0px;
+        margin-bottom: 24px;
+        line-height: 12px;
+      }
+    }
+  }
+}
+
+// Resources & About Page Template
+
+.header-image {
+  position: relative;
+  margin-top: -8%;
+}
+
+.network-snipt {
+  margin-top: 50px;
+  img {
+    margin-top: 20px;
+  }
+}
+
+// - - - - - - - - - - - - - - Buttons & icons - - - - - - - - - - - - - - //
+
+.link-wrap {
+  display: inline-block;
+  border-bottom: dotted 1px $pink;
+  width: 83px;
+  height: 20px;
+  &:hover {
+    border-bottom: dotted 1px $black;
   }
 }
 
@@ -145,41 +504,148 @@ a {
   }
 }
 
-.projects {
+// icon setup
 
-li { margin-bottom: 66px;
-display: inline-block;
-min-height: 1px;
-width: auto;
+.img-download:hover {
+  background: url(/images/download-01.png) no-repeat;
+  background-position: 50% 50%;
+  background-size: 36px;
+}
 
-  img { width: 100%; }
+.img-link:hover {
+  background: url(/images/link-01.png) no-repeat;
+  background-position: 50% 50%;
+  background-size: 36px;
+}
 
-  &:hover {
-    .post-thumbnail img {
-      opacity: 0.1;
-      @include single-transition(0.2s, ease-in-out);
-    }
-    .excerpt {
-      opacity: 1;
-      @include single-transition(0.2s, ease-in-out);
-    }
+.img-read:hover {
+  background: url(/images/read.png) no-repeat;
+  background-position: 50% 50%;
+  background-size: 36px;
+}
+
+area {
+  width: 36px;
+  height: 36px;
+}
+
+.move-icon {
+  @include single-transition(0.5s, ease-in-out);
+  .img-fav {
+    background: url(/images/fav-01.png) no-repeat;
+    @include icon-button;
   }
-  .post-thumbnail img {
-    @include single-transition(0.2s, ease-in-out);
-  }
-  .excerpt {
+  .staff-pick {
+    border: none;
+    position: relative;
+    right: 0px;
+    top: 8px;
     opacity: 0;
-    position:absolute;
-
-
-    @include single-transition(0.2s, ease-in-out);
-    h3 {
-      margin-top: 0px;
-      margin-bottom: 24px;
-      line-height: 12px;
-    }
+    font-size: 11px;
+    font-weight: lighter;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: $pink;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
   }
+}
 
+.move-icon:hover {
+  transform: translate(-50px, 0px);
+  -ms-transform: translate(-50px, 0px);
+  /* IE 9 */
+  -webkit-transform: translate(-50px, 0px);
+  /* Safari and Chrome */
+  @include single-transition(0.5s, ease-in-out);
+  .img-fav {
+    background: url(/images/fav-on-01.png) no-repeat;
+    @include icon-button;
   }
-    
+  .staff-pick {
+    opacity: 1;
+  }
+}
+
+// - - - - - - - - - - - - - - Adjusters & touches - - - - - - - - - - - - - - //
+
+// Fixes for elements
+
+// Display as block element
+.block {
+  display: block;
+}
+
+// Add margin to the bottom of an element
+.margin-bm {
+  margin-bottom: 3%;
+}
+
+// Hide container element – check plugs for reference
+#container {
+  display: none;
+  height: 120px;
+}
+
+div.meta {
+  margin-top: 30px;
+}
+
+// remove the dotted border on an element
+a.no-border {
+  border: none;
+}
+
+// Have a img span full width
+.img-full {
+  width: 100%;
+}
+
+// If a title has to sit next to text remove default margin & padding
+.header-fix {
+  margin-top: 0px;
+  padding-top: 0px;
+  line-height: 20px;
+  margin-bottom: 24px;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+::selection {
+  background: rgba(255, 128, 128, 0.2);
+  color: $pink;
+  font-weight: lighter;
+  /* Safari */
+}
+
+::-moz-selection {
+  background: rgba(255, 128, 128, 0.2);
+  color: $pink;
+  font-weight: lighter;
+  /* Safari */
+}
+
+.no-mar-right {
+  margin-right: 0px;
+}
+
+.clear-l {
+  clear: left;
+}
+
+// .float-right {float:right; margin-left: 0px;}
+
+// .row {border: solid #eee 1px; }
+
+// Elements with transitions
+
+
+// Mobile fixers
+
+
+    @media screen and (max-width: $tablet) {
+.m-hide { display: none; }
 }

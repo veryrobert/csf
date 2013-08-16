@@ -3,6 +3,9 @@
 // --------------------------------------------------
 
 
+$break-small: 720px;
+
+
 // Global values
 // --------------------------------------------------
 
@@ -48,7 +51,7 @@ $sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 $monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-$baseFontSize:          13px;
+$baseFontSize:          90%;
 $baseFontFamily:        $sansFontFamily;
 $baseLineHeight:        20px;
 $altFontFamily:         $serifFontFamily;
@@ -60,10 +63,13 @@ $headingsColor:         inherit; // empty to use BS default, $textColor
 
 // Component sizing
 // -------------------------
-// Based on 14px font-size and 20px line-height
+// Based on 13px font-size and 20px line-height
 
-$fontSizeLarge:         $baseFontSize * 1.25; // ~18px
-$fontSizeSmall:         $baseFontSize * 0.85; // ~12px
+$fontSizeLarge:         $baseFontSize * 1.27; // ~18px
+
+$bodyfontSize: 			$baseFontSize * 1.1; // 13px
+
+$fontSizeSmall:         $baseFontSize * 1; // ~12px
 $fontSizeMini:          $baseFontSize * 0.75; // ~11px
 
 $paddingLarge:          11px 19px; // 44px
@@ -130,6 +136,13 @@ $dropdownLinkColorActive:       $white;
 
 $dropdownLinkBackgroundActive:  $linkColor;
 $dropdownLinkBackgroundHover:   $dropdownLinkBackgroundActive;
+
+
+
+
+// Spacing
+
+$margin-push: 2%;
 
 
 
