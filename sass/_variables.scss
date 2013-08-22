@@ -3,7 +3,6 @@
 // --------------------------------------------------
 
 
-$break-small: 720px;
 
 
 // Global values
@@ -47,9 +46,14 @@ $linkColorHover:        #ff8080;
 
 // Typography
 // -------------------------
-$sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+
+$sansHeadings:  		"Theinhardt-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sansFontFamily:        "Theinhardt-light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serifFontFamily:       GaramondPremrPro, Georgia, "Times New Roman", Times, serif;
+$serifFontDisplay: 		GaramondPremrPro-Disp, GaramondPremrPro, Georgia, "Times New Roman", Times, serif;
 $monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+
+$italicdisplay:    		GaramondPremrPro-ItDisp, Georgia, "Times New Roman", Times, serif;
 
 $baseFontSize:          90%;
 $baseFontFamily:        $sansFontFamily;

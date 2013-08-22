@@ -1,5 +1,3 @@
-
-
 <!-- Head above -->
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -13,14 +11,22 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
 
+<!-- Some sweet fontage from webink -->
+  <link href="http://fnt.webink.com/wfs/webink.css?project=117D069F-196B-422E-9028-A67626A3BD81&fonts=4AF47B38-DAD2-B69E-2E9B-630DF120B14F:f=GaramondPremrPro-It,BA766C3D-9F83-4950-AFCD-AD9F2BF5CEAB:f=Theinhardt-Regular,95DF32D3-3FE4-9041-B5C7-3A1C59461EB0:f=GaramondPremrPro-Smbd,F02CF68B-F066-812B-66C6-6C95A5361C9C:f=GaramondPremrPro-ItDisp,688C3FF3-A273-E9B9-DC2C-B8D75714CB59:f=GaramondPremrPro,5311E27D-C352-4200-6D9E-8034050CDA11:f=GaramondPremrPro-Disp,008579D7-00D8-1E34-1306-843EC6BC82EA:f=Theinhardt-Light,82DA4627-8191-9CE4-706C-58F3C2615A95:f=Theinhardt-Bold,F77BBDE3-5270-5846-90AD-5529C2FFDA57:f=Theinhardt-Medium,36F56030-8792-3643-E889-BEC891E39949:f=GaramondPremrPro-SmbdIt" rel="stylesheet" type="text/css"/>
+
+<!-- Main Style Sheet -->
   <link href="stylesheets/styles.css" rel="stylesheet" type="text/css">
+
   <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
-<body>
+<body data-grid-framework="bo" data-grid-color="pink" data-grid-opacity="0.5" data-grid-zindex="10" data-grid-nbcols="12">
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
 
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
 
 <!-- Header with nav above -->
 
@@ -28,20 +34,19 @@
   <!-- Navigation Menu -->
 
   <header class="row">
-    <div class="logo span4"></div>
-
-    <nav class="row pull-right">
+  <div><a class="logo no-border span4" href="index.html"></a></div>
+  <nav class="row pull-right">
       <ul class="inline span6">
         <li class="span1">
-          <a href="#">About CSF</a>
+          <a href="about.html">About CSF</a>
         </li>
 
         <li class="span1">
-          <a href="#">Projects</a>
+          <a href="projects.html">Projects</a>
         </li>
 
         <li class="span1">
-          <a href="#">Resources</a>
+          <a href="resources.html">Resources</a>
         </li>
 
         <li class="span1">
@@ -51,7 +56,6 @@
     </nav>
   </header>
 </div>
-
 <!-- Slider Container -->
 
 
@@ -60,7 +64,7 @@
   <div class="row slider-container">
       <div class="slider span12">
         <ul>
-          <li><img alt="" src="http://placehold.it/1120x485"></li>
+          <li><img alt="" src="http://lorempixel.com/1120/485/fashion/"></li>
         </ul>
       </div>
     </div>
@@ -103,8 +107,7 @@
 
         <li class="span3">
             <div class="row">
-              <div class="post-thumbnail span3"><img alt="" src=
-              "http://placehold.it/265x177"></div>
+              <div class="post-thumbnail span3"><img alt="" src="http://lorempixel.com/265/177/fashion/"></div>
 
               <div class="excerpt span3">
                 <h3><a href="#">Rollover 1</a></h3>
@@ -126,7 +129,7 @@
 
             <div class="row">
               <div class="post-thumbnail span5"><img alt="" src=
-              "http://placehold.it/265x177"></div>
+              "http://lorempixel.com/265/200/fashion/"></div>
 
               <div class="excerpt span3">
                 <h3><a href="#">Rollover 1</a></h3>
@@ -144,7 +147,7 @@
 
   <!-- Project Info -->
 
- <li class="span3">
+ <li class="span3 m-hide">
             <div class="row">
               <div class="span3 ">
                 <h3 class="header-fix"><a href="#">Projects</a></h3>
@@ -166,7 +169,7 @@
           <div class="span4 pull-right offset1">
             <div class="row">
               <div class="post-thumbnail span4"><img alt="" src=
-              "http://placehold.it/265x177"></div>
+              "http://lorempixel.com/265/400/fashion/"></div>
 
               <div class="excerpt span3">
                 <h3><a href="#">Rollover 1</a></h3>
@@ -189,10 +192,12 @@
 </section>
 
 
+<!-- Home page articles -->
+
 <section>
 <div class="row">
  <aside class="span3">
-        <h2 class="header-fix">Projects</h2>
+        <h2 class="header-fix">Articles</h2>
         <div class="row">
           <ol class="span3">
             <li>
@@ -216,10 +221,10 @@
     <li class="span3">
           <div class="row">
             <div class="post-thumbnail span3">
-              <img alt="" src="http://placehold.it/265x177">
+              <img alt="" src="http://lorempixel.com/265/220/fashion/">
             </div>
             <div class="excerpt span3">
-              <h3><a href="#">Rollover 1</a></h3>
+              <h3 class="header-link"><a href="#">Article 1</a></h3>
               <p>Sed ut perspiciatis unde omnis iste natus.</p>
               <div class="meta">
               <p><a href="#">Author name</a></p>
@@ -233,10 +238,10 @@
   <li class="span3">
           <div class="row">
             <div class="post-thumbnail span3">
-              <img alt="" src="http://placehold.it/265x177">
+              <img alt="" src="http://lorempixel.com/265/300/fashion/">
             </div>
             <div class="excerpt span3">
-              <h3><a href="#">Rollover 1</a></h3>
+              <h3 class="header-link"><a href="#">Article 2</a></h3>
               <p>Sed ut perspiciatis unde omnis iste natus.</p>
               <div class="meta">
               <p><a href="#">Author name</a></p>
@@ -250,10 +255,10 @@
     <li class="span3">
           <div class="row">
             <div class="post-thumbnail span3">
-              <img alt="" src="http://placehold.it/265x177">
+              <img alt="" src="http://lorempixel.com/285/177/fashion/">
             </div>
             <div class="excerpt span3">
-              <h3><a href="#">Rollover 1</a></h3>
+                  <h3 class="header-link"><a href="#">Article 3</a></h3>
               <p>Sed ut perspiciatis unde omnis iste natus.</p>
               <div class="meta">
               <p><a href="#">Author name</a></p>
@@ -297,7 +302,7 @@
         </ul><a class="page-link" href="#">Link to page</a>
       </aside>
 
-      <div class="social-links span4 pull-right">
+      <div class="social-links span4 pull-right m-hide">
       <ul class="inline">
         <li>Follow us on </li>
         <li>—</li>

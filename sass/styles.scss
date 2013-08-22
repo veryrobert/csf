@@ -3,16 +3,15 @@
 $tablet: 768px;
 $mobile: 400px;
 
-// Media queries 
+// Media queries
 
-  //   @media screen and (max-width: $tablet) {
-  //   background-color: aqua;
-  // } 
+//   @media screen and (max-width: $tablet) {
+//   background-color: aqua;
+// }
 
-  // @media screen and (max-width: $mobile) {
-  //   background-color: green;
-  // }
-
+// @media screen and (max-width: $mobile) {
+//   background-color: green;
+// }
 
 // Import all the variables into the main css file.
 @import "variables";
@@ -31,17 +30,42 @@ $mobile: 400px;
 
 // Changes to ems if needed but sticky with pixels as bootstrap is in pixels
 @mixin large-serif {
-  font-family: $serifFontFamily;
-  font-size: $fontSizeLarge;
-  line-height: 27px;
+  font-family: $serifFontDisplay;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: normal;
+  margin-bottom: 30px;
+  @media screen and (max-width: $mobile) {
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 18px;
+  }
+  // display: inline;
+}
+
+@mixin large-serif-italic {
+  font-family: $italicdisplay;
+  font-size: 26px;
+  line-height: 34px;
   font-weight: normal;
   display: inline;
+  @media screen and (max-width: $mobile) {
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 18px;
+    display: block;
+  }
 }
 
 // Trigger button
 @mixin trigger-button-size {
   background-position: 100% 54%;
   background-size: 36px 36px;
+}
+
+@mixin icon-setup {
+  background-position: 50% 50%;
+  background-size: 36px;
 }
 
 // 36px icons buttons
@@ -51,7 +75,7 @@ $mobile: 400px;
   background-size: 36px;
   height: 36px;
   width: 36px;
-  @include single-transition(0.2s, ease-in-out);
+  @include transition(0.2s, ease-in-out);
 }
 
 // - - - - - - - - - - - - -  Global Styles - - - - - - - - - - - - - - - - //
@@ -59,9 +83,6 @@ $mobile: 400px;
 body {
   font-size: $baseFontSize;
   line-height: $baseLineHeight;
-
-
-
 }
 
 header {
@@ -69,30 +90,81 @@ header {
     width: 230px;
     height: 40px;
     background: url(/images/csf_logo.svg) no-repeat;
+    @media screen and (max-width: $mobile) {
+      margin: 0px;
+    }
   }
   nav {
-    font-weight: lighter;
+    // font-weight: lighter;
+    @media screen and (max-width: $mobile) {
+      width: 100%;
+   
+    @media screen and (max-width: $tablet) {
+      ul {
+        position: absolute;
+        left: 0px;
+        margin: 30px 0 0 0;
+        width: 100%;
+        padding-left: 0px;
+      }
+}
+    }
+    @media screen and (max-width: $mobile) {
+      ul {
+        position: absolute;
+        left: 0px;
+        margin: 30px 0 0 0;
+        width: 100%;
+        padding-left: 0px;
+      }
+    }
     li {
       margin-right: 5%;
       margin-top: 6px;
+      @media screen and (max-width: $mobile) {
+        display: inline;
+        margin-left: 0px;
+        clear: left;
+        a {
+          padding: 12px 0;
+          width: 100%;
+          display: block;
+          margin-bottom: 0px;
+          border-bottom: dotted 1px;
+        }
+        a:hover {
+          border-bottom: dotted 1px;
 
- @media screen and (max-width: $mobile) {
-display: inline;
-margin-left: 0px;
-clear: left;
-  } 
+        }
 
+&:focus {
+          background-color: $pink;
+        }
 
+      }
     }
   }
 }
 
+
+// Fixes a mobile nav padding
+
+nav ul.inline > li, ol.inline > li {
+  @media screen and (max-width: $mobile) {
+    display: inline-block;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+  }
+}
+
+
 aside.in-page-nav {
   position: fixed;
-  font-weight: lighter;
+  // font-weight: lighter;
   color: $pink;
-  right: 0;
-  top: 35.4%;
+  right: -4%;
+  top: 37%;
   ul li {
     margin-left: -4px;
     padding-left: 0px;
@@ -100,29 +172,31 @@ aside.in-page-nav {
   }
 }
 
+.pull-right {
+  @media screen and (max-width: $mobile) {
+    float: left;
+  }
+}
+
 // Main container
 
 .container {
   margin-top: 50px;
-
-   @media screen and (max-width: $tablet) {
-     margin-top: 20px;
-  } 
-
+  @media screen and (max-width: $tablet) {
+    margin-top: 20px;
+  }
 }
 
 // In page sections
 
 section {
-  margin-top: 120px;
-
-    @media screen and (max-width: $tablet) {
-     margin-top: 0px;
-
-
-  } 
-
-
+  margin-top: 10%;
+  &.small-header {
+    margin: 10% 0;
+  }
+  @media screen and (max-width: $tablet) {
+    margin-top: 0px;
+  }
 }
 
 // Header styles
@@ -130,6 +204,13 @@ section {
 a, p, li {
   font-size: 13px;
   line-height: $baseLineHeight;
+  @media screen and (max-width: $mobile) {
+    font-size: 14px;
+  }
+}
+
+a:focus {
+  outline: none;
 }
 
 // Bottom Footer
@@ -137,6 +218,9 @@ a, p, li {
 footer {
   margin-top: 200px;
   margin-bottom: 10px;
+  @media screen and (max-width: $tablet) {
+    margin-top: 100px;
+  }
   ul li {
     margin-right: 50px;
     margin-left: 0px;
@@ -170,37 +254,59 @@ h3 {
   font-size: 13px;
 }
 
+h2, h3, h4, h5 {
+  font-family: $sansHeadings;
+  font-weight: 400;
+}
+
+
+.header-link { border-bottom: solid 1px black; display: inline;}
+
+
 aside {
   h3 {
     margin: 0px;
     padding: 0 0 6px 0;
     line-height: 24px;
   }
+  @media screen and (max-width: $mobile) {
+    padding-bottom: 24px;
+  }
 }
 
-p {
-  font-size: 13px;
+.large-serif.inline {
+  display: inline;
 }
 
 .small-pink {
   font-size: $fontSizeSmall;
   color: $pink;
-  font-weight: lighter;
+  // font-weight: lighter;
 }
 
 // Elements with serifs
 
+aside {
+  p.serif {
+    margin-bottom: 30px;
+  }
+}
+
 .serif {
   font-family: $serifFontFamily;
   font-size: $fontSizeLarge;
-  line-height: 27px;
-  margin-bottom: 24px;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.serif-italic {
+  @include large-serif-italic;
+  color: $pink;
 }
 
 .large-serif {
   @include large-serif;
-  @extend p.large-serif;
-
 }
 
 .serif-title {
@@ -224,7 +330,7 @@ p {
 .inline-heading {
   display: inline;
   font-style: italic;
-  @include large-serif;
+  @include large-serif-italic;
   color: $pink;
   &:after {
     content: ' ' '\2014' ' ';
@@ -282,13 +388,13 @@ a {
   font-size: $bodyfontSize;
   margin-bottom: 3px;
   text-decoration: none;
-  @include single-transition(0.2s, ease-in-out);
+  @include transition(0.2s, ease-in-out);
   &.page-link {
     width: auto;
     clear: left;
     float: left;
     color: $pink;
-    font-weight: lighter;
+    // font-weight: lighter;
     font-size: $bodyfontSize;
     font-family: $sansFontFamily;
     margin-top: 6%;
@@ -301,13 +407,13 @@ a {
     color: $pink;
     text-decoration: none;
     border-bottom: dotted 1px;
-    @include single-transition(0.2s, ease-in-out);
+    @include transition(0.2s, ease-in-out);
   }
   &.on {
     color: $pink;
     cursor: pointer;
     text-decoration: none;
-    // @include single-transition(0.1s, ease-in-out);
+    // @include transition(0.1s, ease-in-out);
     height: 22px;
     width: 120px;
     display: block;
@@ -330,6 +436,8 @@ a {
     }
   }
 }
+
+
 
 // Page elements
 
@@ -366,12 +474,12 @@ a {
   }
   img {
     width: auto;
-    @include single-transition(0.2s, ease-in-out);
+    @include transition(0.2s, ease-in-out);
   }
   &:hover {
     img {
       opacity: 0;
-      @include single-transition(0.2s, ease-in-out);
+      @include transition(0.2s, ease-in-out);
     }
   }
 }
@@ -388,6 +496,10 @@ a {
 .slider {
   margin-top: 50px;
   // background-color: rgba(120, 120, 120, 0.1);
+  @media screen and (max-width: $mobile) {
+    margin-top: 0px;
+    margin-bottom: 48px;
+  }
   img {
     width: 100%;
   }
@@ -398,49 +510,59 @@ a {
     margin-bottom: 66px;
     display: inline-block;
     min-height: 1px;
-
- @media screen and (max-width: $mobile) {
-margin-bottom: 24px;
-
-img {width: 100%;}
-
-  } 
-
+    @media screen and (max-width: $mobile) {
+      margin-bottom: 24px;
+      img {
+        width: 100%;
+      }
+    }
   }
 }
 
 .projects {
+  @media screen and (max-width: $mobile) {
+    opacity: 1;
+  }
   li {
     margin-bottom: 66px;
     display: inline-block;
     min-height: 1px;
-
- @media screen and (max-width: $mobile) {
-margin-bottom: 24px;
-
-img {width: 100%;}
-  } 
-
+    @media screen and (max-width: $mobile) {
+      margin-bottom: 24px;
+      img {
+        width: 100%;
+      }
+    }
     img {
       width: 100%;
     }
     &:hover {
       .post-thumbnail img {
         opacity: 0.1;
-        @include single-transition(0.2s, ease-in-out);
+        @include transition(all 0.2s ease-in-out 0s);
+        @media screen and (max-width: $mobile) {
+          opacity: 1;
+        }
       }
       .excerpt {
         opacity: 1;
-        @include single-transition(0.2s, ease-in-out);
+        @include transition(all 0.2s ease-in-out 0s);
       }
     }
     .post-thumbnail img {
-      @include single-transition(0.2s, ease-in-out);
+      @include transition(all 0.2s ease-in-out 0s);
     }
     .excerpt {
       opacity: 0;
       position: absolute;
-      @include single-transition(0.2s, ease-in-out);
+      @media screen and (max-width: $mobile) {
+        position: relative;
+        opacity: 1;
+        margin-top: 24px;
+        border-bottom: dotted 1px;
+        padding-bottom: 24px;
+      }
+      @include transition(all 0.2s ease-in-out 0s);
       h3 {
         margin-top: 0px;
         margin-bottom: 24px;
@@ -452,15 +574,142 @@ img {width: 100%;}
 
 // Resources & About Page Template
 
+.page-intro {
+  margin-top: 30px;
+  @media screen and (max-width: $mobile) {
+    margin: 0px 0 24px 0;
+  }
+}
+
 .header-image {
   position: relative;
   margin-top: -8%;
+  @media screen and (max-width: $tablet) {
+    padding: 15%;
+    margin-top: 12px;
+    margin-bottom: 60px;
+    img {
+      width: 100%;
+    }
+  }
 }
 
 .network-snipt {
   margin-top: 50px;
   img {
     margin-top: 20px;
+  }
+}
+
+// Projects page
+
+.featured-image {
+  margin: 0 auto;
+  padding-left: 2.6%;
+  width: 52.5%;
+  @media screen and (max-width: $tablet) {
+    width: 80%;
+  }
+}
+
+#project-excerpt {
+  position: absolute;
+  left: 8.4%;
+  top: 25px;
+  z-index: 100;
+  @media screen and (max-width: $tablet) {
+    position: relative;
+    left: 0px;
+    margin-bottom: 150px;
+    padding: 0 12%;
+  }
+}
+
+// post page
+
+.post-title {
+  position: absolute;
+  margin-top: -60px;
+  @media screen and (max-width: $tablet) {
+    position: relative;
+    border-bottom: solid 1px $pink;
+    padding-bottom: 10px;
+  }
+  h1 {
+    font-size: 112px;
+    font-family: $serifFontDisplay;
+    font-weight: normal;
+    // font-weight: lighter;
+    color: $pink;
+    line-height: 100px;
+    @media screen and (max-width: $tablet) {
+      font-size: 50px;
+      line-height: 56px;
+    }
+  }
+}
+
+.post-image {
+  margin-top: 81px;
+  @media screen and (max-width: $tablet) {
+    margin-top: 20px;
+  }
+}
+
+aside.meta {
+  @media screen and (max-width: $tablet) {
+    height: 80px;
+  }
+  div {
+    position: absolute;
+    bottom: 20px;
+    @media screen and (max-width: $tablet) {
+      position: relative;
+      top: 12px;
+    }
+  }
+  ul {
+    color: $pink;
+    // font-weight: lighter;
+    margin-bottom: 36px;
+    h4 {
+      font-weight: medium;
+      display: inline-block;
+      margin-bottom: 0px;
+      font-size: 13px;
+    }
+    @media screen and (max-width: $tablet) {
+      float: left;
+      clear: none;
+      margin-right: 24px;
+      margin-bottom: 0px;
+      li {
+        display: inline;
+        &.tags {
+          &:after {
+            content: ' /';
+          }
+        }
+      }
+    }
+  }
+}
+
+.post-content {
+  @media screen and (max-width: $tablet) {
+    margin-top: 24px;
+  }
+  aside {
+    @media screen and (max-width: $tablet) {
+      display: none;
+    }
+    p {
+      margin-bottom: 30px;
+      margin-top: 14px;
+      &:first-child {
+        margin-top: 100px;
+      }
+    }
   }
 }
 
@@ -479,8 +728,11 @@ img {width: 100%;}
 // Buttons & Triggers
 
 .info-open {
+  cursor: pointer;
   width: 36px;
   height: 36px;
+  margin-left: 22px;
+  margin-top: 3%;
   background: url(/images/open.svg) no-repeat;
   &.active {
     background: url(/images/close.svg) no-repeat;
@@ -508,20 +760,17 @@ img {width: 100%;}
 
 .img-download:hover {
   background: url(/images/download-01.png) no-repeat;
-  background-position: 50% 50%;
-  background-size: 36px;
+  @include icon-setup;
 }
 
 .img-link:hover {
   background: url(/images/link-01.png) no-repeat;
-  background-position: 50% 50%;
-  background-size: 36px;
+  @include icon-setup;
 }
 
 .img-read:hover {
   background: url(/images/read.png) no-repeat;
-  background-position: 50% 50%;
-  background-size: 36px;
+  @include icon-setup;
 }
 
 area {
@@ -530,7 +779,7 @@ area {
 }
 
 .move-icon {
-  @include single-transition(0.5s, ease-in-out);
+  @include transition(0.5s, ease-in-out);
   .img-fav {
     background: url(/images/fav-01.png) no-repeat;
     @include icon-button;
@@ -542,7 +791,7 @@ area {
     top: 8px;
     opacity: 0;
     font-size: 11px;
-    font-weight: lighter;
+    // font-weight: lighter;
     letter-spacing: 0.09em;
     text-transform: uppercase;
     color: $pink;
@@ -558,7 +807,7 @@ area {
   /* IE 9 */
   -webkit-transform: translate(-50px, 0px);
   /* Safari and Chrome */
-  @include single-transition(0.5s, ease-in-out);
+  @include transition(0.5s, ease-in-out);
   .img-fav {
     background: url(/images/fav-on-01.png) no-repeat;
     @include icon-button;
@@ -585,7 +834,7 @@ area {
 // Hide container element – check plugs for reference
 #container {
   display: none;
-  height: 120px;
+  // height: 120px;
 }
 
 div.meta {
@@ -617,14 +866,14 @@ a.no-border {
 ::selection {
   background: rgba(255, 128, 128, 0.2);
   color: $pink;
-  font-weight: lighter;
+  // font-weight: lighter;
   /* Safari */
 }
 
 ::-moz-selection {
   background: rgba(255, 128, 128, 0.2);
   color: $pink;
-  font-weight: lighter;
+  // font-weight: lighter;
   /* Safari */
 }
 
@@ -636,16 +885,149 @@ a.no-border {
   clear: left;
 }
 
+.large-serif.block {
+  margin-bottom: 30px;
+}
+
+.row {
+  position: relative;
+}
+
 // .float-right {float:right; margin-left: 0px;}
 
 // .row {border: solid #eee 1px; }
 
 // Elements with transitions
 
-
 // Mobile fixers
 
+// Masonry for image grid
 
-    @media screen and (max-width: $tablet) {
-.m-hide { display: none; }
+.masonry {
+  max-width: 980px;
+  margin-left: 130px;
+   @media screen and (max-width: $mobile) { width: 100%; margin:0px; }
+    @media screen and (max-width: $tablet) { width: 100%; margin:0px; } 
+}
+
+.masonry .item {
+  width: 170px;
+  height: 220px;
+  float: left;
+  margin-bottom: 30px;
+
+
+}
+
+.item.w2 {
+  width: 370px;
+  height: 470px;
+
+}
+
+.item.w3 {
+  width: 370px;
+}
+
+.item {
+  @include transition(all 0.2s ease-in-out 0s);
+}
+
+.item:hover {
+  opacity: 0.2;
+}
+
+// Light box for post
+
+.lb-title, .lb-img {
+  display: none;
+}
+
+#cboxWrapper {
+  .offset1 {
+    margin: 0px;
+  }
+  .span7 {
+    width: auto;
+    padding-bottom: 10%;
+  }
+  #inline_content {
+    .lb-title, .lb-img {
+      display: inline-block;
+    }
+    .lb-title {
+      font-family: $serifFontDisplay;
+      font-weight: normal;
+      font-size: 56px;
+      margin-bottom: 24px;
+      color: $pink;
+      // font-weight: lighter;
+      border-bottom: solid 1px $pink;
+    }
+    .lb-img {
+      margin-bottom: 24px;
+      width: 100%;
+    }
+    margin: 10% auto;
+    width: 85%;
+  }
+}
+
+.read-view {
+  height: 36px;
+  width: 36px;
+  display: inline-block;
+  cursor: pointer;
+  background-image: url(/images/lightbox.png);
+  background-size: 36px;
+  position: absolute;
+  right: 7.7%;
+  top: 6%;
+}
+
+// #cboxLoadedContent {overflow: visible;}
+
+#colorbox, #cboxOverlay, #cboxWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+#cboxOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#cboxOverlay {
+  background: #fff;
+}
+
+#colorbox {
+  outline: 0;
+}
+
+#cboxClose {
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  border: solid 1px pink;
+  background-color: #fff;
+  width: 36px;
+  height: 36px;
+}
+
+@media screen and (max-width: $tablet) {
+  .m-hide {
+    display: none !important;
+  }
 }
