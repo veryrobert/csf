@@ -98,16 +98,15 @@ header {
     // font-weight: lighter;
     @media screen and (max-width: $mobile) {
       width: 100%;
-   
-    @media screen and (max-width: $tablet) {
-      ul {
-        position: absolute;
-        left: 0px;
-        margin: 30px 0 0 0;
-        width: 100%;
-        padding-left: 0px;
+      @media screen and (max-width: $tablet) {
+        ul {
+          position: absolute;
+          left: 0px;
+          margin: 30px 0 0 0;
+          width: 100%;
+          padding-left: 0px;
+        }
       }
-}
     }
     @media screen and (max-width: $mobile) {
       ul {
@@ -134,18 +133,42 @@ header {
         }
         a:hover {
           border-bottom: dotted 1px;
-
         }
-
-&:focus {
+        &:focus {
           background-color: $pink;
         }
-
       }
     }
   }
 }
 
+input {
+  color: #000000 !important;
+  &.search {
+    border: none;
+    border-radius: 0px;
+    margin-top: -4px;
+    width: 100px;
+    box-shadow: 0px;
+    color: #000 !important;
+    margin-bottom: 0px;
+    font-size: 13px;
+    -webkit-box-shadow: inset 0 0 0px;
+    -moz-box-shadow: inset 0 0 0px;
+    box-shadow: inset 0 0 0px;
+    background: transparent;
+    &:focus {
+      border: none;
+      -webkit-box-shadow: inset 0 0 0px;
+      -moz-box-shadow: inset 0 0 0px;
+      box-shadow: inset 0 0 0px;
+      background: transparent;
+      &:visited {
+        color: #000;
+      }
+    }
+  }
+}
 
 // Fixes a mobile nav padding
 
@@ -157,7 +180,6 @@ nav ul.inline > li, ol.inline > li {
     margin-top: 0px;
   }
 }
-
 
 aside.in-page-nav {
   position: fixed;
@@ -259,9 +281,13 @@ h2, h3, h4, h5 {
   font-weight: 400;
 }
 
-
-.header-link { border-bottom: solid 1px black; display: inline;}
-
+.header-link {
+  border-bottom: solid 1px black;
+  display: inline;
+  &:hover {
+    border-bottom: solid 0px black;
+  }
+}
 
 aside {
   h3 {
@@ -312,7 +338,6 @@ aside {
 .serif-title {
   font-family: $serifFontFamily;
   font-size: 160%;
-  font-style: italic;
   font-weight: normal;
   border-bottom: 1px solid;
   margin-bottom: 6%;
@@ -321,7 +346,6 @@ aside {
 .large-serif-italic {
   font-family: $serifFontFamily;
   font-size: 140%;
-  font-style: italic;
   font-weight: normal;
   margin-bottom: 3%;
 }
@@ -329,7 +353,6 @@ aside {
 // Header paragraph with em dash
 .inline-heading {
   display: inline;
-  font-style: italic;
   @include large-serif-italic;
   color: $pink;
   &:after {
@@ -437,8 +460,6 @@ a {
   }
 }
 
-
-
 // Page elements
 
 .article-preview {
@@ -456,7 +477,7 @@ a {
   }
 }
 
-.publications-archive {
+.publication-archive {
   li.archive-item {
     position: relative;
     min-height: 200px;
@@ -464,7 +485,38 @@ a {
   }
 }
 
-.publications-type {
+ul.tags {
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  font-size: 90%;
+}
+
+ul.publication-archive {
+  li.publication {
+    border-bottom: solid 1px #eee;
+    margin-top: 20px;
+    &:first-child {
+      margin-top: 100px;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.publication-cat {
+  position: absolute;
+  top: 110px;
+  right: 200px;
+  h4 {
+    padding: 0px;
+    margin: 0px;
+    font-family: $sansHeadingsReg;
+  }
+}
+
+.publication-type {
   width: 120px;
   height: 164px;
   border: solid 1px white;
@@ -474,12 +526,12 @@ a {
   }
   img {
     width: auto;
-    @include transition(0.2s, ease-in-out);
+    @include transition(all 0.5s ease-in-out 0s);
   }
   &:hover {
     img {
       opacity: 0;
-      @include transition(0.2s, ease-in-out);
+      @include transition(all 0.2s ease-in-out 0s);
     }
   }
 }
@@ -572,6 +624,22 @@ a {
   }
 }
 
+li.active {
+  img {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+    @include transition(all 0.2s ease-in-out 0s);
+  }
+  .post-thumbnail img {
+    opacity: 0.1;
+  }
+  .excerpt {
+    opacity: 1;
+  }
+}
+
 // Resources & About Page Template
 
 .page-intro {
@@ -636,12 +704,12 @@ a {
     padding-bottom: 10px;
   }
   h1 {
-    font-size: 112px;
+    font-size: 72px;
     font-family: $serifFontDisplay;
     font-weight: normal;
     // font-weight: lighter;
     color: $pink;
-    line-height: 100px;
+    line-height: 72px;
     @media screen and (max-width: $tablet) {
       font-size: 50px;
       line-height: 56px;
@@ -779,7 +847,7 @@ area {
 }
 
 .move-icon {
-  @include transition(0.5s, ease-in-out);
+  @include transition(all 0.8s ease-in-out 0.2s);
   .img-fav {
     background: url(/images/fav-01.png) no-repeat;
     @include icon-button;
@@ -795,9 +863,7 @@ area {
     letter-spacing: 0.09em;
     text-transform: uppercase;
     color: $pink;
-    transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out;
+    @include transition(all 0.8s ease-in-out 0.2s);
   }
 }
 
@@ -807,7 +873,7 @@ area {
   /* IE 9 */
   -webkit-transform: translate(-50px, 0px);
   /* Safari and Chrome */
-  @include transition(0.5s, ease-in-out);
+  @include transition(all 0.5s ease-in-out 0.2s);
   .img-fav {
     background: url(/images/fav-on-01.png) no-repeat;
     @include icon-button;
@@ -817,9 +883,46 @@ area {
   }
 }
 
+// Archive Pages
+
+.archive-thumb-wrap {
+  width: 180px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.archive-thumb {
+  margin: 0 auto;
+  height: 400px;
+  display: table-cell;
+  vertical-align: middle;
+  a {
+    border: none;
+  }
+  h2 {
+    width: 180px;
+    display: block;
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    @include transition(all 0.8s ease-in-out 0.8s);
+  }
+  h2.active {
+    display: block;
+    opacity: 1;
+    @include transition(all 0.8s ease-in-out 0.8s);
+  }
+}
+
 // - - - - - - - - - - - - - - Adjusters & touches - - - - - - - - - - - - - - //
 
 // Fixes for elements
+
+// Wrap elements to center them
+.wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
 
 // Display as block element
 .block {
@@ -829,6 +932,11 @@ area {
 // Add margin to the bottom of an element
 .margin-bm {
   margin-bottom: 3%;
+}
+
+// Add margin to the bottom of an element
+.margin-top {
+  margin-top: 100px;
 }
 
 // Hide container element – check plugs for reference
@@ -889,7 +997,8 @@ a.no-border {
   margin-bottom: 30px;
 }
 
-.row {
+// Needs this position elements like the projects page
+.relative {
   position: relative;
 }
 
@@ -906,8 +1015,14 @@ a.no-border {
 .masonry {
   max-width: 980px;
   margin-left: 130px;
-   @media screen and (max-width: $mobile) { width: 100%; margin:0px; }
-    @media screen and (max-width: $tablet) { width: 100%; margin:0px; } 
+  @media screen and (max-width: $mobile) {
+    width: 100%;
+    margin: 0px;
+  }
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+    margin: 0px;
+  }
 }
 
 .masonry .item {
@@ -915,14 +1030,11 @@ a.no-border {
   height: 220px;
   float: left;
   margin-bottom: 30px;
-
-
 }
 
 .item.w2 {
   width: 370px;
   height: 470px;
-
 }
 
 .item.w3 {
@@ -1020,14 +1132,138 @@ a.no-border {
   position: fixed;
   right: 30px;
   top: 30px;
-  border: solid 1px pink;
+  border: none;
   background-color: #fff;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
+  background: url(/images/close_v2.svg) no-repeat;
+  background-size: 30px 30px;
+  background-position: 30% 30%;
+  text-indent: 2000px;
+  overflow: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 @media screen and (max-width: $tablet) {
   .m-hide {
     display: none !important;
   }
+}
+
+// Royal Slider
+
+#slider-with-blocks-1 {
+  width: 100%;
+}
+
+.rsContent {
+  font-size: 24px;
+  line-height: 32px;
+  float: left;
+  background-color: #fff;
+}
+
+.bContainer {
+  position: relative;
+}
+
+.rsABlock {
+  position: relative;
+  display: block;
+  left: auto;
+  top: auto;
+}
+
+.blockHeadline {
+  font-size: 72px;
+  line-height: 72px;
+  font-family: $serifFontDisplay;
+  margin-bottom: 30px;
+}
+
+.blockSubHeadline {
+  font-size: 32px;
+  line-height: 40px;
+  font-family: $serifFontDisplay;
+}
+
+.txtCent {
+  text-align: center;
+  width: 100%;
+}
+
+
+.slide .bContainer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: auto;
+  top: 24px;
+}
+
+.photoCopy {
+  position: absolute;
+  line-height: 24px;
+  font-size: 12px;
+  background: black;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 0px 10px;
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  top: auto;
+  border-radius: 2px;
+  z-index: 25;
+}
+
+.photoCopy a {
+  color: #FFF;
+}
+
+.palmImg {
+  left: 0;
+  top: auto;
+  bottom: -60px;
+  position: absolute;
+}
+
+@media screen and (min-width: 0px) and (max-width: 960px) {
+  .rsContent {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .blockHeadline {
+    font-size: 32px;
+    line-height: 32px;
+  }
+  .blockSubHeadline {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 500px) {
+  .royalSlider,
+  .rsOverflow {
+    height: 330px !important;
+  }
+  .rsContent {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .blockHeadline {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .blockSubHeadline {
+    font-size: 22px;
+    line-height: 32px;
+  }
+}
+
+.royalSlider {
+  width: 100%;
+  height: 450px;
 }
