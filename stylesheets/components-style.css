@@ -1,0 +1,8 @@
+/* line 1, ../sass/components-style.scss */
+body {
+  background-color: #eee; }
+
+/* line 3, ../sass/components-style.scss */
+.objects {
+  background-color: #fff;
+  min-height: 400px; }

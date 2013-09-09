@@ -22,3 +22,17 @@ guard 'livereload' do
 end
 
 # guard 'sass', :input => 'sass', :output => 'css'
+
+guard 'jslint-on-rails' do
+  # watch for changes to application javascript files
+  watch(%r{^javascripts/.*\.js$})
+end
+
+# verify that application Javascript files are lintable
+# see https://github.com/psionides/jslint_on_rails
+guard 'jslint-on-rails' do
+  # watch for changes to application javascript files
+  watch(%r{^app/assets/javascripts/.*\.js$})
+  # watch for changes to the JSLint configuration
+  watch('config/jslint.yml')
+end
