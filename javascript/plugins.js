@@ -108,7 +108,6 @@ $('.aside-list li').each(function(){
   });
 
 
-tgktg
 
 
 
